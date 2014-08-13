@@ -1,0 +1,50 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+11	PTR	eng11.paraccel.com.
+12	PTR	eng12.paraccel.com.
+13	PTR	eng13.paraccel.com.
+14	PTR	eng14.paraccel.com.
+15	PTR	eng15.paraccel.com.
+16	PTR	eng16.paraccel.com.
+17	PTR	eng17.paraccel.com.
+18	PTR	eng18.paraccel.com.
+19	PTR	eng19.paraccel.com.
+20	PTR	eng20.paraccel.com.
+21	PTR	eng21.paraccel.com.
+22	PTR	eng22.paraccel.com.
+23	PTR	eng23.paraccel.com.
+24	PTR	eng24.paraccel.com.
+25	PTR	eng25.paraccel.com.
+26	PTR	eng26.paraccel.com.
+27	PTR	eng27.paraccel.com.
+28	PTR	eng28.paraccel.com.
+31	PTR	eng31.paraccel.com.
+32	PTR	eng32.paraccel.com.
+33	PTR	eng33.paraccel.com.
+34	PTR	eng34.paraccel.com.
+35	PTR	eng35.paraccel.com.
+36	PTR	eng36.paraccel.com.
+37	PTR	eng37.paraccel.com.
+38	PTR	eng38.paraccel.com.
+44	PTR	eng44.paraccel.com.
+45	PTR	eng45.paraccel.com.
+46	PTR	eng46.paraccel.com.
+47	PTR	eng47.paraccel.com.
+48	PTR	eng48.paraccel.com.
+49	PTR	eng49.paraccel.com.
+200	PTR	paconnect-lead.paraccel.com.
+201	PTR	paconnect-comp3.paraccel.com.
+202	PTR	paconnect-comp2.paraccel.com.

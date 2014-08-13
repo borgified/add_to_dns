@@ -1,0 +1,61 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+9		IN	PTR	salesvm0-ilom.paraccel.com.
+21		IN	PTR	qa-clstr21-ilom.paraccel.com.
+22		IN	PTR	qa-clstr22-ilom.paraccel.com.
+23		IN	PTR	qa-clstr23-ilom.paraccel.com.
+24		IN	PTR	qa-clstr24-ilom.paraccel.com.
+25		IN	PTR	qa-clstr25-ilom.paraccel.com.
+26		IN	PTR	qa-clstr26-ilom.paraccel.com.
+58		IN	PTR	cloud24-ilom.paraccel.com.	
+59		IN	PTR	cloud23-ilom.paraccel.com.
+60		IN	PTR	cloud21-ilom.paraccel.com.
+61		IN	PTR	cloud20-ilom.paraccel.com.
+62		IN	PTR	cloud66-ilom.paraccel.com.
+63		IN	PTR	cloud65-ilom.paraccel.com.
+64		IN	PTR	cloud64-ilom.paraccel.com.
+65		IN	PTR	cloud63-ilom.paraccel.com.
+66		IN	PTR	cloud62-ilom.paraccel.com.
+67		IN	PTR	cloud110-ilom.paraccel.com.
+68		IN	PTR	cloud109-ilom.paraccel.com.
+69		IN	PTR	cloud108-ilom.paraccel.com.
+70		IN	PTR	cloud107-ilom.paraccel.com.
+71		IN	PTR	cloud106-ilom.paraccel.com.
+87		IN	PTR	cloud111-ilom.paraccel.com.
+88		IN	PTR	cloud112-ilom.paraccel.com.
+89		IN	PTR	cloud113-ilom.paraccel.com.
+90		IN	PTR	cloud88-ilom.paraccel.com.
+91		IN	PTR	cloud87-ilom.paraccel.com.
+92		IN	PTR	cloud114-ilom.paraccel.com.
+101		IN	PTR	cloud90-ilom.paraccel.com.
+102		IN	PTR	cloud89-ilom.paraccel.com.
+106		IN	PTR	cloud126-ilom.paraccel.com.
+108		IN	PTR	pfc4.paraccel.com.
+108		IN	PTR	ussdr620-01-ilom.paraccel.com.
+109		IN	PTR	ussdr720-01-ilom.paraccel.com.
+110		IN	PTR	ussdr720-02-ilom.paraccel.com.
+111		IN	PTR	ussdr720-03-ilom.paraccel.com.
+112		IN	PTR	ussdr720-04-ilom.paraccel.com.
+113		IN	PTR	ussdr720-05-ilom.paraccel.com.
+114		IN	PTR	ussdr720-06-ilom.paraccel.com.
+115		IN	PTR	ussdr720-07-ilom.paraccel.com.
+116		IN	PTR	ussdr720-08-ilom.paraccel.com.
+117		IN	PTR	ussdr720-09-ilom.paraccel.com.
+118		IN	PTR	ussdr720-10-ilom.paraccel.com.
+119		IN	PTR	ussdr720-11-ilom.paraccel.com.
+120		IN	PTR	ussdr720-12-ilom.paraccel.com.
+121		IN	PTR	ussdr720-13-ilom.paraccel.com.
+122		IN	PTR	ussdr720-14-ilom.paraccel.com.

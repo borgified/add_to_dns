@@ -1,0 +1,54 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+1	PTR	campbell-sw1.paraccel.com.
+;3       PTR     cam-clrprinter.paraccel.com.
+4       PTR     cam-esxihost01.paraccel.com.
+5	PTR	cam-scanner.paraccel.com.
+6       PTR     cam-bwprinter.paraccel.com.
+7	PTR	cup-wlan.paraccel.com.
+9	PTR	cup-sw1.paraccel.com.
+10      PTR     usca-esxhost01.paraccel.com.
+11	PTR	koopa.paraccel.com.
+12      PTR     cam-ns1.paraccel.com.
+13	PTR	chuck-printer.paraccel.com.
+16      PTR     APWIFICUP3.paraccel.com. 
+17      PTR     APWIFICUP2.paraccel.com.
+18      PTR     APWIFICUP4.paraccel.com.
+22      PTR     campbell-sw2.paraccel.com.
+31	PTR	ws-kforte.paraccel.com.
+36	PTR	ts-test.paraccel.com.
+45	PTR	cam-clrprinter.paraccel.com.
+70	PTR	bobbytest.paraccel.com.
+71	PTR	mpimpale-vm2.paraccel.com.
+72      PTR     ws-lcolby.paraccel.com.
+73      PTR     ws-devvm1.paraccel.com.
+74      PTR     ws-vm1.paraccel.com.
+80      PTR     ws-rkickhofel.paraccel.com.
+81	PTR	ws-vmarkman.paraccel.com.
+91	PTR	ws-rprakash.paraccel.com.
+103	PTR	jmoore-dev.paraccel.com.
+104	PTR	ws-delson.paraccel.com.
+105	PTR	ws-bdesantis.paraccel.com.
+107	PTR	ws-vradanovic.paraccel.com.
+110	PTR	ws-vradanovic1.paraccel.com.
+169	PTR	jaya-dev.paraccel.com.
+206     PTR     dhcp254.paraccel.com.
+207     PTR     dhcp253.paraccel.com.
+208     PTR     dhcp252.paraccel.com.
+209     PTR     dhcp251.paraccel.com.
+210     PTR     dhcp250.paraccel.com.
+219     PTR     dhcp241.paraccel.com.
+234     PTR     bdesantis-dev.paraccel.com.
+248	PTR	cam-wireless-rtr.paraccel.com.

@@ -1,0 +1,75 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+2		PTR	ws-rdyskant.paraccel.com.
+12		PTR	ws-emartin.paraccel.com.
+13		PTR	ws-gszedenits.paraccel.com.
+14		PTR	ws-rprakash2.paraccel.com.
+15		PTR	ws-brumsby.paraccel.com.
+16		PTR	ws-asinha.paraccel.com.
+17		PTR	ws-akeen.paraccel.com.
+18		PTR	ws-rcole.paraccel.com.
+21		PTR	ws-jrangavajhula.paraccel.com.
+22		PTR	ws-jyates.paraccel.com.
+23		PTR	ts-training.paraccel.com.
+24		PTR	ws-igarish1.paraccel.com.
+25		PTR	ws-schen.paraccel.com.
+26		PTR	ws-trandell.paraccel.com.
+27		PTR	ws-boaz3.paraccel.com.
+28		PTR	ws-dsteinhoff.paraccel.com.
+31		PTR	ws-joechen.paraccel.com.
+33		PTR	ws-crogers.paraccel.com.
+36		PTR	ws-lhoward.paraccel.com.
+37		PTR	ws-btammisetti.paraccel.com.
+38		PTR	ws-sfrolich.paraccel.com.
+39		PTR	ws-anayak.paraccel.com.
+40		PTR	ts-rdp.paraccel.com.
+42		PTR	ws-jpowers2.paraccel.com.
+44		PTR	plannervm1.paraccel.com.
+45		PTR	ws-delson2.paraccel.com.
+46		PTR	ws-dsteinhoff2.paraccel.com.
+47		PTR	ws-vradanovic3.paraccel.com.
+50		PTR	ws-riwanik.paraccel.com.
+51		PTR	ws-boaz.paraccel.com.
+55		PTR	para-ad.paraccel.com.
+56		PTR	ws-bchu2.paraccel.com.
+57		PTR	ws-bzane2.paraccel.com.
+60		PTR	ws-boaz2.paraccel.com.
+61		PTR	ws-mpimpale.paraccel.com.
+64		PTR	win8-dev.paraccel.com.
+69		PTR	ts-win7.paraccel.com.
+70		PTR	ws-bchu3.paraccel.com.
+71		PTR	ws-bzane3.paraccel.com.
+72		PTR	ws-prane.paraccel.com.
+73		PTR	ws-jmoore2.paraccel.com.
+75		PTR	ws-bchu4.paraccel.com.
+76		PTR	bsoft3-dev.paraccel.com.
+78		PTR	ws-azane.paraccel.com.
+79		PTR	ws-dtracy.paraccel.com.
+80		PTR	ws-dtracy2.paraccel.com.
+81		PTR	sc1-idrac.paraccel.com.
+83		PTR	ws-jballard.paraccel.com.
+84		PTR	ws-kpatel.paraccel.com.
+85		PTR	ws-kpatel2.paraccel.com.
+86		PTR	sc-emartin1.paraccel.com.
+87		PTR	sc-bzane1.paraccel.com.
+88		PTR	sc-bchu1.paraccel.com.
+89		PTR	sc-jyates1.paraccel.com.
+92 		PTR	grost2.paraccel.com
+93		PTR	grost3.paraccel.com
+94		PTR	grost4.paraccel.com
+95		PTR	grost5.paraccel.com
+96		PTR	grost1.paraccel.com
+97		PTR	sc-smurthy.paraccel.com

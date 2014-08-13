@@ -1,0 +1,33 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081208      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+9		PTR	starthere.paraccel.com.
+11		PTR	se-informatical.paraccel.com.
+13		PTR	se-sqlserver2012.paraccel.com.
+21		PTR	ucs1.paraccel.com.
+25		PTR	usldc-synology1.paraccel.com.
+40		PTR	xencom196.paraccel.com.
+48		PTR	xencom203.paraccel.com.
+49		PTR	xencom238.paraccel.com.
+51		PTR	xencom240.paraccel.com.
+57		PTR	xencom248.paraccel.com.
+58		PTR	xencom35.paraccel.com.
+59		PTR	xencom35ha.paraccel.com.
+60		PTR	xencom39.paraccel.com.
+64		PTR	xencom82.paraccel.com.
+66		PTR	xencom81.paraccel.com.
+67		PTR	xencom82.paraccel.com.
+68		PTR	xencom83.paraccel.com.
+69		PTR	xencom84.paraccel.com.
+70		PTR	xencom87.paraccel.com.

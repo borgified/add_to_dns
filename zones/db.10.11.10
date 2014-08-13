@@ -1,0 +1,80 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081207      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+10		PTR	xencom226.paraccel.com.
+11		PTR	xencom230.paraccel.com.
+12		PTR	xencom231.paraccel.com.
+13		PTR	xencom232.paraccel.com.
+14		PTR	xencom233.paraccel.com.
+15		PTR	xencom235.paraccel.com.
+16		PTR	xencom236.paraccel.com.
+17		PTR	xencom237.paraccel.com.
+18		PTR	burner.paraccel.com.
+19		PTR	disty.paraccel.com.
+20		PTR	puppet.paraccel.com.
+30		PTR	anthill.paraccel.com.
+31		PTR	backup.paraccel.com.
+34		PTR	cloud2-ilom.paraccel.com.
+35		PTR	cloud3-ilom.paraccel.com.
+36		PTR	cloud4-ilom.paraccel.com.
+38		PTR	cloud7-ilom.paraccel.com.
+39		PTR	cloud20-ilom.paraccel.com.
+40		PTR	cloud21-ilom.paraccel.com.
+41		PTR	cloud23-ilom.paraccel.com.
+42		PTR	cloud24-ilom.paraccel.com.
+48		PTR	cloud33-ilom.paraccel.com.
+50		PTR	cloud63.paraccel.com.
+52		PTR	cloud64.paraccel.com.
+55		PTR	cloud66-ilom.paraccel.com.
+70		PTR	cloud127-ilom.paraccel.com.
+71		PTR	cloud128-ilom.paraccel.com.
+72		PTR	cloud129-ilom.paraccel.com.
+73		PTR	cognos51.paraccel.com.
+74		PTR	collabdb-vm.paraccel.com.
+75		PTR	collabesxsrv.paraccel.com.
+79		PTR	dash-ilom.paraccel.com.
+80		PTR	ws-glerch.paraccel.com.
+110		PTR	eng40-ilom.paraccel.com.
+111		PTR	eng41-ilom.paraccel.com.
+112		PTR	eng42-ilom.paraccel.com.
+113		PTR	eng43-ilom.paraccel.com.
+122		PTR	itvm0.paraccel.com.
+124		PTR	itvm1.paraccel.com.
+128		PTR	itvm3.paraccel.com.
+130		PTR	itvm4.paraccel.com.
+133		PTR	itvm5.paraccel.com.
+135		PTR	itvm6.paraccel.com.
+137		PTR	itvm7.paraccel.com.
+139		PTR	itvm8.paraccel.com.
+143		PTR	itvm10.paraccel.com.
+145		PTR	itvm11.paraccel.com.
+147		PTR	itvm12.paraccel.com.
+149		PTR	itvm13.paraccel.com.
+151		PTR	itvm14.paraccel.com.
+153		PTR	itvm15.paraccel.com.
+154		PTR	itvm16.paraccel.com.
+184		PTR	lemon.paraccel.com.
+187		PTR	nexsan1.paraccel.com.
+188		PTR	nexsan1a.paraccel.com.
+189		PTR	nexsan1b.paraccel.com.
+202		PTR	potato.paraccel.com.
+204		PTR	ps1.paraccel.com.
+205		PTR	ps2.paraccel.com.
+206		PTR	ps3.paraccel.com.
+207		PTR	ps4.paraccel.com.
+208		PTR	qa.paraccel.com.
+212		PTR	qahost32-ilom.paraccel.com.
+213		PTR	qahsot33-ilom.paraccel.com.
+214		PTR	qahost34-ilom.paraccel.com.
+215		PTR	qahost35-ilom.paraccel.com.

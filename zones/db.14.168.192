@@ -1,0 +1,117 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+14     PTR     info54.paraccel.com.
+19	PTR	qa-windows1.paraccel.com.
+23	PTR	qa-clstr23.paraccel.com.
+24	PTR	qa-clstr24.paraccel.com.
+26	PTR	qa-clstr26.paraccel.com.
+28	PTR	qa-windows2.paraccel.com.
+32	PTR	qahost32.paraccel.com.
+33	PTR	qahost33.paraccel.com.
+36	PTR	qahost36.paraccel.com.
+37	PTR	qahost37.paraccel.com.
+38	PTR	qahost38.paraccel.com.
+39	PTR	qahost39.paraccel.com.
+40	PTR	qahost40.paraccel.com.
+41	PTR	qahost41.paraccel.com.
+42	PTR	qahost42.paraccel.com.
+48	PTR	qahost48.paraccel.com.
+49	PTR	qahost49.paraccel.com.
+50	PTR	qahost50.paraccel.com.
+51	PTR	qahost51.paraccel.com.
+52	PTR	qahost52.paraccel.com.
+53	PTR	qahost53.paraccel.com.
+54	PTR	qahost54.paraccel.com.
+55	PTR	qahost55.paraccel.com.
+56	PTR	qahost56.paraccel.com.
+57	PTR	qahost57.paraccel.com.
+58	PTR	qahost58.paraccel.com.
+59	PTR	qacognos2.paraccel.com.
+60	PTR	qahost43.paraccel.com.
+61	PTR	ts-failover1.paraccel.com.
+62	PTR	ts-failover5.paraccel.com.
+63	PTR	ts-failover2.paraccel.com.
+64	PTR	ts-failover3.paraccel.com.
+65	PTR	ts-failover4.paraccel.com.
+67	PTR	qa-clstr22-ha.paraccel.com.
+72	PTR	qa72.paraccel.com.
+73	PTR	qa73.paraccel.com.
+74	PTR	qa74.paraccel.com.
+75	PTR	qa75.paraccel.com.
+76	PTR	qa76.paraccel.com.
+77	PTR	qa77.paraccel.com.
+78	PTR	qa78.paraccel.com.
+79	PTR	qa79.paraccel.com.
+172	PTR	qa-mapr1.paraccel.com.
+173	PTR	qa-mapr2.paraccel.com.
+174	PTR	linuxha-rhel64-1.paraccel.com.
+175	PTR	linuxha-rhel64-2.paraccel.com.
+176	PTR	linuxha-rhel64-3.paraccel.com.
+177	PTR	linuxha-rhel64-4.paraccel.com.
+178	PTR	linuxha-centos64-1.paraccel.com.
+179	PTR	linuxha-centos64-2.paraccel.com.
+180	PTR	linuxha-centos64-3.paraccel.com.
+181	PTR	linuxha-centos64-4.paraccel.com.
+182	PTR	mapr-dev1.paraccel.com.
+183	PTR	mapr-dev2.paraccel.com.
+184	PTR	linuxha-centos58-1.paraccel.com.
+185	PTR	linuxha-centos58-2.paraccel.com.
+186	PTR	linuxha-centos58-3.paraccel.com.
+187	PTR	linuxha-centos58-4.paraccel.com.
+188	PTR	linuxha-centos62-1.paraccel.com.
+189	PTR	linuxha-centos62-2.paraccel.com.
+190	PTR	linuxha-centos62-3.paraccel.com.
+191	PTR	linuxha-centos62-4.paraccel.com.
+192	PTR	winbuild1.paraccel.com.
+193	PTR	qa-mstr1.paraccel.com.
+194	PTR	qacognos3.paraccel.com.
+195	PTR	qa-reportdb.paraccel.com.
+196	PTR	qa-td14.paraccel.com.
+197	PTR	qa-td13.paraccel.com.
+198	PTR	qa-teradata1.paraccel.com.
+199	PTR	qa-teradata2.paraccel.com.
+200	PTR	ucs1.paraccel.com.
+201	PTR	linuxha-rhel62-1.paraccel.com.
+202	PTR	linuxha-rhel62-2.paraccel.com.
+203	PTR	linuxha-rhel62-3.paraccel.com.
+204	PTR	linuxha-rhel62-4.paraccel.com.
+207	PTR	linuxha-rhel58-1.paraccel.com.
+208	PTR	linuxha-rhel58-2.paraccel.com.
+209	PTR	linuxha-rhel58-3.paraccel.com.
+210	PTR	linuxha-rhel58-4.paraccel.com.
+211	PTR	linuxha-vip.paraccel.com.
+214	PTR	qa-mediumdrone1.paraccel.com.
+216	PTR	qa-remotedrone-el6.paraccel.com.
+217	PTR	qa-remotedrone-win7.paraccel.com.
+218	PTR	qa-shortdrone6.paraccel.com.
+219	PTR	qa-mediumdrone7.paraccel.com.
+220	PTR	qa-drone42.paraccel.com.
+221	PTR	qa-shortdrone7.paraccel.com.
+222	PTR	qa-mediumdrone8.paraccel.com.
+223	PTR	qa-drone45.paraccel.com.
+224	PTR	qa-mediumdrone2.paraccel.com.
+225	PTR	qa-hadoop1.paraccel.com.
+226	PTR	qa-hadoop2.paraccel.com.
+227	PTR	qa-hadoop3.paraccel.com.
+228	PTR	ts-win2k8.paraccel.com.
+231	PTR	hdp-dev1.paraccel.com.
+232	PTR	hdp-dev2.paraccel.com.
+233	PTR	winbuild2.paraccel.com.
+234	PTR	qa-shortdrone9.paraccel.com.
+235	PTR	qa-shortdrone8.paraccel.com.
+236	PTR	qa-build3.paraccel.com.
+237	PTR	cdh-dev1.paraccel.com.
+238	PTR	cdh-dev2.paraccel.com.
+239	PTR	qa-mediumdrone9.paraccel.com.
+240	PTR	qa-mediumdrone10.paraccel.com.

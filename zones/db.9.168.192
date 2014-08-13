@@ -1,0 +1,34 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206     ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+36	PTR	qahost36-ilom.paraccel.com.
+37	PTR	qahost37-ilom.paraccel.com.
+38	PTR	qahost38-ilom.paraccel.com.
+39	PTR	qahost39-ilom.paraccel.com.
+40	PTR	qahost40-ilom.paraccel.com.
+41	PTR	qahost41-ilom.paraccel.com.
+42	PTR	qahost42-ilom.paraccel.com.
+43	PTR	qahost43-ilom.paraccel.com.
+48	PTR	qahost48-ilom.paraccel.com.
+49	PTR	qahost49-ilom.paraccel.com.
+50	PTR	qahost50-ilom.paraccel.com.
+51	PTR	qahost51-ilom.paraccel.com.
+52	PTR	qahost52-ilom.paraccel.com.
+53	PTR	qahost53-ilom.paraccel.com.
+54	PTR	qahost54-ilom.paraccel.com.
+55	PTR	qahost55-ilom.paraccel.com.
+56	PTR	qahost56-ilom.paraccel.com.
+57	PTR	qahost57-ilom.paraccel.com.
+58	PTR	qahost58-ilom.paraccel.com.

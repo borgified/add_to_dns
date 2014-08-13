@@ -1,0 +1,102 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+1	PTR	ldc-cs1.paraccel.com.
+10     PTR     ns1.paraccel.com.
+10     PTR     monitor.paraccel.com.
+11     PTR     ldc-clstr-sw11.paraccel.com.
+13     PTR     collabesxsrv-ilom.paraccel.com.
+15     PTR     qadashboard.paraccel.com.
+16	PTR	ldc-fsw3.paraccel.com.
+17	PTR	ldc-fsw2.paraccel.com.
+18     PTR     mindshare.paraccel.com.
+21	PTR	salesvm0.paraccel.com.
+23	PTR	git.paraccel.com.
+24	PTR	reportdb.paraccel.com.
+30	PTR	ldc-clstr-sw9.paraccel.com.
+31	PTR	ldc-clstr-sw10.paraccel.com.
+32	PTR	ldc-clstr-sw7.paraccel.com.
+33	PTR	ldc-clstr-sw8.paraccel.com.
+34	PTR	cognos51.paraccel.com.
+;35	PTR	dash-ilom.paraccel.com.
+36	PTR	dash.paraccel.com.
+38	PTR	xenbuild.paraccel.com.
+39	PTR	paconsole-demo.paraccel.com.
+40	PTR	winit-ilom.paraccel.com.
+#42	PTR	qavm0.paraccel.com.
+43	PTR	qavm0-ilom.paraccel.com.
+44	PTR	qa-shortdrone4.paraccel.com.
+45	PTR	qa-shortdrone5.paraccel.com.
+46	PTR	qa-mediumdrone3.paraccel.com.
+47	PTR	qa-mediumdrone4.paraccel.com.
+48	PTR	qa-mediumdrone5.paraccel.com.
+49	PTR	qa-mediumdrone6.paraccel.com.
+55	PTR	qa-ilom.paraccel.com.
+56	PTR	itvm4-ilom.paraccel.com.
+58	PTR	ws-rparmar.paraccel.com.
+59	PTR	ldc-clstr-sw14.paraccel.com.
+60	PTR	ws-sdixit.paraccel.com.
+61	PTR	itvm5-ilom.paraccel.com.
+63	PTR	vm-stig2.paraccel.com.
+64	PTR	qa-stig1.paraccel.com.
+66	PTR	itvm6-ilom.paraccel.com.
+68	PTR	ws-sperfilov.paraccel.com.
+69	PTR	itvm7-ilom.paraccel.com.
+70      PTR     hr.paraccel.com.
+71      PTR     doc1.paraccel.com.
+74	PTR	ws-teads.paraccel.com.
+75	PTR	syslog.paraccel.com.
+76	PTR	smtprelay.paraccel.com.
+77	PTR	itvm8-ilom.paraccel.com.
+79	PTR	ws-bmckenna.paraccel.com.
+81	PTR	itvm14-ilom.paraccel.com.
+82	PTR	itvm9-ilom.paraccel.com.
+83	PTR	itvm9.paraccel.com.
+85	PTR	itvm10-ilom.paraccel.com.
+88	PTR	itvm11-ilom.paraccel.com.
+90	PTR	itvm15-ilom.paraccel.com.
+91	PTR	para-san2.paraccel.com.
+91	PTR	para-san2-spa.paraccel.com.
+92	PTR	para-san2-spb.paraccel.com.
+93	PTR	itvm12-ilom.paraccel.com.
+96	PTR	itvm13-ilom.paraccel.com.
+98	PTR	qa-build1.paraccel.com.
+99	PTR	qa-build2.paraccel.com.
+100	PTR	sparqlrepo.paraccel.com.
+106	PTR	ldc-clstr-sw21.paraccel.com.
+107	PTR	ldc-clstr-sw16.paraccel.com.
+108	PTR	ldc-clstr-sw17.paraccel.com.
+109	PTR	ldc-clstr-sw18.paraccel.com.
+110	PTR	remote1.paraccel.com.
+111	PTR	ldc-clstr-sw19.paraccel.com.
+118	PTR	itvm2-ilom.paraccel.com.
+119	PTR	itvm2.paraccel.com.
+120	PTR	ldc-clstr-sw20.paraccel.com.
+121	PTR	ldc-ps7.paraccel.com.
+123	PTR	veeam-proxy1.paraccel.com.
+125	PTR	ts-hadoop2.paraccel.com.
+126	PTR	ts-hadoop3.paraccel.com.
+127	PTR	ts-hadoop1.paraccel.com.
+129	PTR	sparqlbugs.paraccel.com.
+130	PTR	sfsync.paraccel.com.
+135	PTR	itvm16-ilom.paraccel.com.
+137	PTR	cloud64.paraccel.com.
+138	PTR	cloud64-ilom.paraccel.com.
+141	PTR	ldc-psw9.paraccel.com.
+143	PTR	puppet.paraccel.com.
+145	PTR	pshiner.paraccel.com.
+146	PTR	informatica-win1.paraccel.com.
+147	PTR	cloud63.paraccel.com.
+148	PTR	cloud63-ilom.paraccel.com.
+201	PTR	ldc-clstr-sw15.paraccel.com.

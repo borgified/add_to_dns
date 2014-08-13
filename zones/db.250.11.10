@@ -1,0 +1,20 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+165		PTR	collabapp-vm.paraccel.com.
+167		PTR	cognos-support.paraccel.com.
+174		PTR	cognos-support2.paraccel.com.
+171		PTR	portal.paraccel.com.
+;174		PTR	disty.paraccel.com.

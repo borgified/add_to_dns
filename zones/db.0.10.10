@@ -1,0 +1,32 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081207      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+8		PTR	itvm10-10g.paraccel.com.
+9		PTR	itvm13-10g.paraccel.com.
+10		PTR	tintri1-10g.paraccel.com.
+11		PTR	itvm11-10g.paraccel.com.
+12		PTR	itvm8-10g.paraccel.com.
+13		PTR	itvm12-10g.paraccel.com.
+14		PTR	itvm14-10g.paraccel.com.
+15		PTR	itvm15-10g.paraccel.com.
+16		PTR	itvm16-10g.paraccel.com.
+28		PTR	backup-ipmp0.paraccel.com.
+31		PTR	nexsan1-nx0.paraccel.com.
+32		PTR	nexsan1-nx0-ctrl1.paraccel.com.
+33		PTR	nexsan1-nx0-ctrl2.paraccel.com.
+34		PTR	nexsan1-nx0-rg1.paraccel.com.
+35		PTR	nexsan1-nx0-rg2.paraccel.com.
+36		PTR	potato-bond0.paraccel.com.
+37		PTR	lemon-bond0.paraccel.com.

@@ -1,0 +1,48 @@
+$TTL 3D
+
+@       IN      SOA     ns1.paraccel.com. root.paraccel.com. (
+                        2014081206      ; serial, todays date + todays serial #
+                        8H              ; refresh, seconds
+                        2H              ; retry, seconds
+                        4W              ; expire, seconds
+                        1D )            ; minimum, seconds
+;
+                TXT     "Internal ParAccel DNS"
+                NS      ns1.paraccel.com.
+		NS	cam-ns1.paraccel.com.
+		NS	sd-ns1.paraccel.com.
+
+
+8		PTR	kickstart.paraccel.com.
+9		PTR	xencom80ha.paraccel.com.
+11		PTR	xencom141ha.paraccel.com.
+12		PTR	xencom198ha.paraccel.com.
+66		PTR	xencom66.paraccel.com.
+68		PTR	xencom68.paraccel.com.
+69		PTR	xencom69.paraccel.com.
+192		PTR	xencom192.paraccel.com.
+193		PTR	xencom193.paraccel.com.
+194		PTR	xencom194.paraccel.com.
+195		PTR	xencom195.paraccel.com.
+196		PTR	xencom196.paraccel.com.
+197		PTR	xencom197.paraccel.com.
+198		PTR	xencom198.paraccel.com.
+199		PTR	xencom199.paraccel.com.
+200             PTR     xencom200.paraccel.com.
+201             PTR     xencom201.paraccel.com.
+202             PTR     xencom202.paraccel.com.
+203             PTR     xencom203.paraccel.com.
+224             PTR     xencom224.paraccel.com.
+225             PTR     xencom225.paraccel.com.
+226             PTR     xencom226.paraccel.com.
+227             PTR     xencom227.paraccel.com.
+228             PTR     xencom228.paraccel.com.
+229             PTR     xencom229.paraccel.com.
+230             PTR     xencom230.paraccel.com.
+231             PTR     xencom231.paraccel.com.
+232             PTR     xencom232.paraccel.com.
+233             PTR     xencom233.paraccel.com.
+235             PTR     xencom235.paraccel.com.
+236             PTR     xencom236.paraccel.com.
+237             PTR     xencom237.paraccel.com.
+#249		PTR	ws-glerch.paraccel.com
