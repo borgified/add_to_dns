@@ -9,11 +9,18 @@ sub main {
 	my $newips = &newips; #hash of new ips from __DATA__
 	#&print_hash($newips); #check to see if newips got read correctly
 	#print $$newips{'10.11.13.66'}; #this is how to use %newips
+	
+	#assumes one ip per hostname. i know it is possible to have 
+	#different hostnames with same ip. fix this bug later.
+	#right now it only affects the following ips:
+	#173.201.145.1,10.11.33.20,10.11.33.21,10.11.10.79
+
 
 	my %hash_of_updated_files;
+	my @processed_ips;
 
 	foreach my $ip (@ARGV) {
-	
+
 		&check_typo($ip); #makes sure input ip is correct	format
 		#check that it exists in our database
 		if(!exists($$newips{$ip})){
@@ -22,6 +29,7 @@ sub main {
 		}
 		my $hostname = $$newips{$ip};
 		print "adding: $ip $hostname\n";
+		push(@processed_ips, $ip);
 
 		#add corresponding PTR entry
 		&add_reversedns_entry($ip,$hostname);
@@ -36,19 +44,28 @@ sub main {
 
 	}
 
-	#db.paraccel.com is always updated so we add this entry
-	$hash_of_updated_files{'db.paraccel.com'}=0;
+	if(scalar @processed_ips > 0){
 
-	#run setserial on updated db.* files
-	foreach my $file (keys %hash_of_updated_files){
-		print "running setserial $file\n";
+		#db.paraccel.com is always updated so we add this entry
+		$hash_of_updated_files{'db.paraccel.com'}=0;
+
+		#run setserial on updated db.* files
+		foreach my $file (keys %hash_of_updated_files){
+			print "running setserial $file\n";
+		}
+
+
+		#run service bind9 reload
+		print "running service bind9 reload\n";
+
+
+		#do a ping test on each new ip
+		foreach my $ip (@processed_ips){
+			my $hostname = $$newips{$ip};
+			$hostname =~ s/\.paraccel\.com//;
+			print "ping -c 1 $hostname\n";
+		}
 	}
-
-
-	print "running service bind9 reload\n";
-	#
-	#run service bind9 reload
-
 
 }
 &main;
@@ -57,11 +74,11 @@ sub add_forwarddns_entry{
 	#doesnt actually add entry since the entry should exist
 	#we just need to modify the existing entry and update the
 	#old ip with the new ip
-	
+
 	my $ip = shift;
 	my $fqdn = shift;
 
-	my $file_contents = &slurp("./zones/db.paraccel.com");
+	my $file_contents = &slurp("./db.paraccel.com");
 	my @file_contents = split(/\n/,$file_contents);
 
 	$fqdn =~ /(.*)\.paraccel\.com/;
@@ -71,14 +88,19 @@ sub add_forwarddns_entry{
 	foreach my $line (@file_contents){
 		if($line =~ /^$hostname\s/){
 			print "found:\n$line\n";
-			$file_contents[$line_number] =~ s/\d+\.\d+\.\d+\.\d+/$ip/;
+			$line =~ s/\d+\.\d+\.\d+\.\d+/$ip/;
+			$file_contents[$line_number] = $line;
+
 			print "updated to:\n$file_contents[$line_number]\n";
+
 		}
 		$line_number++;
 	}
+
 	#ready to output @file_contents back into a file
 	print "-----------------\n";
 	open(OUTPUT,'>',"db.paraccel.com") or die $!;
+
 	foreach my $line (@file_contents){
 		print OUTPUT "$line\n";
 	}
@@ -94,7 +116,7 @@ sub add_reversedns_entry{
 	my $file_to_open = "db.$octet[-2].$octet[-3].$octet[-4]";
 	#print "$file_to_open\n"; #check to see if the filename is setup correctly
 
-	my $file_contents = &slurp("./zones/$file_to_open");
+	my $file_contents = &slurp("./$file_to_open");
 	my @file_contents = split(/\n/,$file_contents);
 	my $line_number=0;
 	my $doitonce=1;
@@ -140,7 +162,7 @@ sub add_reversedns_entry{
 
 sub check_typo{
 	my $ip = shift @_;
-	if($ip !~ /10\.11\.(10|11|13|30|31|32|250).\d\d?\d?/){
+	if($ip !~ /10\.11\.(10|11|13|30|31|32|33|250)\.\d+$/){
 		die "typo detected: $ip\n";
 	}
 }
@@ -178,7 +200,12 @@ sub newips{
 
 	foreach my $item (@newips){
 		my($hostname,$ip)=split(/,/,$item);
-		$newips{$ip}=$hostname;
+		if(!exists($newips{$ip})){
+			$newips{$ip}=$hostname;
+		}else{
+			#print "$ip already exists for $newips{$ip}\n";
+			#print "if you are adding this ip, doublecheck that it is done correctly\n";
+		}
 	}
 
 	#&print_hash(\%newips);
@@ -441,10 +468,10 @@ cloud129.paraccel.com,10.11.30.46
 cloud33.paraccel.com,10.11.30.26
 pfc11.paraccel.com,10.11.30.152
 se-sqlserver2012.paraccel.com,10.11.31.13
-pfc4.paraccel.com,10.11.30.149
-ussdr620-01.paraccel.com,10.11.31.22
-pfc15.paraccel.com,10.11.30.153
-ussdr720-10.paraccel.com,10.11.31.23
+pfc4.paraccel.com,10.11.33.20
+ussdr620-01.paraccel.com,10.11.33.20
+pfc15.paraccel.com,10.11.33.21
+ussdr720-10.paraccel.com,10.11.33.21
 pfc10-vip.paraccel.com,10.11.30.151
 cdh-trn1.paraccel.com,10.11.30.11
 smtprelay7.paraccel.com,10.11.31.14
@@ -569,21 +596,21 @@ cloud129-ilom.paraccel.com,10.11.10.72
 cloud128-ilom.paraccel.com,10.11.10.71
 cloud127-ilom.paraccel.com,10.11.10.70
 cloud126-ilom.paraccel.com,10.11.10.69
-ussdr620-01-ilom.paraccel.com,10.11.13.59
-ussdr720-01-ilom.paraccel.com,10.11.13.60
-ussdr720-02-ilom.paraccel.com,10.11.13.61
-ussdr720-03-ilom.paraccel.com,10.11.13.62
-ussdr720-04-ilom.paraccel.com,10.11.13.63
-ussdr720-05-ilom.paraccel.com,10.11.13.64
-ussdr720-06-ilom.paraccel.com,10.11.13.65
-ussdr720-07-ilom.paraccel.com,10.11.13.66
-ussdr720-08-ilom.paraccel.com,10.11.13.67
-ussdr720-09-ilom.paraccel.com,10.11.13.68
-ussdr720-10-ilom.paraccel.com,10.11.13.69
-ussdr720-11-ilom.paraccel.com,10.11.13.70
-ussdr720-12-ilom.paraccel.com,10.11.13.71
-ussdr720-13-ilom.paraccel.com,10.11.13.72
-ussdr720-14-ilom.paraccel.com,10.11.13.73
+ussdr620-01-ilom.paraccel.com,10.11.33.30
+ussdr720-01-ilom.paraccel.com,10.11.33.31
+ussdr720-02-ilom.paraccel.com,10.11.33.32
+ussdr720-03-ilom.paraccel.com,10.11.33.33
+ussdr720-04-ilom.paraccel.com,10.11.33.34
+ussdr720-05-ilom.paraccel.com,10.11.33.35
+ussdr720-06-ilom.paraccel.com,10.11.33.36
+ussdr720-07-ilom.paraccel.com,10.11.33.37
+ussdr720-08-ilom.paraccel.com,10.11.33.38
+ussdr720-09-ilom.paraccel.com,10.11.33.39
+ussdr720-10-ilom.paraccel.com,10.11.33.40
+ussdr720-11-ilom.paraccel.com,10.11.33.41
+ussdr720-12-ilom.paraccel.com,10.11.33.42
+ussdr720-13-ilom.paraccel.com,10.11.33.43
+ussdr720-14-ilom.paraccel.com,10.11.33.44
 qa-clstr21-ilom.paraccel.com,10.11.13.25
 qa-clstr22-ilom.paraccel.com,10.11.13.26
 qa-clstr23-ilom.paraccel.com,10.11.13.27
