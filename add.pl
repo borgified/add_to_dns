@@ -54,10 +54,15 @@ sub add_forwarddns_entry{
 	foreach my $line (@file_contents){
 		if($line =~ /\b$hostname\b/){
 			print "found:\n$line\n";
-			$line =~ s/\d+\.\d+\.\d+\.\d+/$ip/;
-			print "updated to:\n$line\n";
+			$file_contents[$line_number] =~ s/\d+\.\d+\.\d+\.\d+/$ip/;
+			print "updated to:\n$file_contents[$line_number]\n";
 		}
 		$line_number++;
+	}
+	#ready to output @file_contents back into a file
+	print "-----------------\n";
+	foreach my $line (@file_contents){
+		print "$line\n";
 	}
 
 }
@@ -103,6 +108,7 @@ sub add_reversedns_entry{
 
 	splice @file_contents, $splice_here, 0, "$octet[-1]\t\tPTR\t$hostname.";
 
+	#ready to output @file_contents back into a file
 	print "-----------------\n";
 	foreach my $line (@file_contents){
 		print "$line\n";
