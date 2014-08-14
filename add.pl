@@ -10,14 +10,41 @@ sub main {
 	#&print_hash($newips); #check to see if newips got read correctly
 	#print $$newips{'10.11.13.66'}; #how to use %newips
 
+	foreach my $ip (@ARGV) {
+		#add corresponding PTR entry
+		#updates db.paraccel.com with new ip
+	
+		&check_typo($ip); #makes sure input ip is correct	
+		print "$ip\n";
 
+		&add_reversedns_entry($ip);
 
+	}
+	
+	#run setserial on updated db.* files
+	#run service bind9 reload
 
 
 }
 &main;
 
+sub add_reversedns_entry{
+	my $ip = shift @_;
+	my @octet = split(/\./,$ip);
+	my $file_to_open = "db.$octet[-2].$octet[-3].$octet[-4]";
+	#print "$file_to_open\n"; #check to see if the filename is setup correctly
 
+
+
+}
+
+
+sub check_typo{
+	my $ip = shift @_;
+	if($ip !~ /10\.11\.(10|11|13|30|31|32|250).\d\d?\d?/){
+		die "typo detected: $ip\n";
+	}
+}
 
 sub print_hash {
 	my $hash=shift @_;
