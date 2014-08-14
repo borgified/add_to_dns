@@ -8,23 +8,24 @@ sub main {
 
 	my $newips = &newips; #hash of new ips from __DATA__
 	#&print_hash($newips); #check to see if newips got read correctly
-	#print $$newips{'10.11.13.66'}; #how to use %newips
+	#print $$newips{'10.11.13.66'}; #this is how to use %newips
 
 	foreach my $ip (@ARGV) {
-		#add corresponding PTR entry
-		#updates db.paraccel.com with new ip
 	
 		&check_typo($ip); #makes sure input ip is correct	format
 		#check that it exists in our database
 		if(!exists($$newips{$ip})){
 			print "unknown $ip, update __DATA__ section to include this entry\n";
-			next;
+			next; #skip this ip, go to the next ip
 		}
 		my $hostname = $$newips{$ip};
 		print "adding: $ip $hostname\n";
 
-
+		#add corresponding PTR entry
 		&add_reversedns_entry($ip,$hostname);
+
+		#updates db.paraccel.com with new ip
+		&add_forwarddns_entry($ip,$hostname);
 
 	}
 	
@@ -34,6 +35,33 @@ sub main {
 
 }
 &main;
+
+sub add_forwarddns_entry{
+	#doesnt actually add entry since the entry should exist
+	#we just need to modify the existing entry and update the
+	#old ip with the new ip
+	
+	my $ip = shift;
+	my $fqdn = shift;
+
+	my $file_contents = &slurp("./zones/db.paraccel.com");
+	my @file_contents = split(/\n/,$file_contents);
+
+	$fqdn =~ /(.*)\.paraccel\.com/;
+	my $hostname = $1;
+
+	my $line_number=0;
+	foreach my $line (@file_contents){
+		if($line =~ /\b$hostname\b/){
+			print "found:\n$line\n";
+			$line =~ s/\d+\.\d+\.\d+\.\d+/$ip/;
+			print "updated to:\n$line\n";
+		}
+		$line_number++;
+	}
+
+}
+
 
 sub add_reversedns_entry{
 	my $ip = shift;
@@ -49,7 +77,6 @@ sub add_reversedns_entry{
 	my $splice_here;
 
 	foreach my $line (@file_contents){
-		$line_number++;
 		if($line =~ /^(\d+)/){
 			if($1 == $octet[-1]){
 				print "$line_number: entry already exists!: $line\n";
@@ -57,7 +84,7 @@ sub add_reversedns_entry{
 			}elsif(($1 > $octet[-1]) && $doitonce){
 				#print "$line_number: $line\n";
 				#print "put it before this line: $line_number\n";
-				$splice_here=$line_number-1;
+				$splice_here=$line_number;
 				$doitonce=0;
 			}elsif($1 < $octet[-1]){
 				#print "$line_number: $line\n";
@@ -65,6 +92,7 @@ sub add_reversedns_entry{
 				#print "$line_number: $line\n";
 			}
 		}
+		$line_number++;
 	}
 
 	if($doitonce == 1){
