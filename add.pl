@@ -69,7 +69,7 @@ sub add_forwarddns_entry{
 
 	my $line_number=0;
 	foreach my $line (@file_contents){
-		if($line =~ /\b$hostname\b/){
+		if($line =~ /^$hostname\s/){
 			print "found:\n$line\n";
 			$file_contents[$line_number] =~ s/\d+\.\d+\.\d+\.\d+/$ip/;
 			print "updated to:\n$file_contents[$line_number]\n";
