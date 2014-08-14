@@ -12,26 +12,3 @@ $TTL 3D
 		NS	cam-ns1.paraccel.com.
 		NS	sd-ns1.paraccel.com.
 
-10		PTR	cdh-dev1.paraccel.com.
-11		PTR	cdh-dev2.paraccel.com.
-13		PTR	qa-remotedrone-win7.paraccel.com.
-14		PTR	qa-teradata1.paraccel.com.
-15		PTR	qa-teradata2.paraccel.com.
-16		PTR	qacognos3.paraccel.com.
-129		PTR	xencom129.paraccel.com.
-130             PTR     xencom130.paraccel.com.
-131             PTR     xencom131.paraccel.com.
-132             PTR     xencom132.paraccel.com.
-133             PTR     xencom133.paraccel.com.
-134             PTR     xencom134.paraccel.com.
-135             PTR     xencom135.paraccel.com.
-136             PTR     xencom136.paraccel.com.
-137             PTR     xencom137.paraccel.com.
-138             PTR     xencom138.paraccel.com.
-139             PTR     xencom139.paraccel.com.
-140             PTR     xencom140.paraccel.com.
-141             PTR     xencom141.paraccel.com.
-142             PTR     xencom142.paraccel.com.
-144             PTR     xencom144.paraccel.com.
-145             PTR     xencom145.paraccel.com.
-

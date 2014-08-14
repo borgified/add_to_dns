@@ -47,7 +47,7 @@ sub add_reversedns_entry{
 	my $line_number=0;
 	my $doitonce=1;
 	my $splice_here;
-	#remember to do the case where this is the first entry
+
 	foreach my $line (@file_contents){
 		$line_number++;
 		if($line =~ /^(\d+)/){
@@ -65,6 +65,12 @@ sub add_reversedns_entry{
 				#print "$line_number: $line\n";
 			}
 		}
+	}
+
+	if($doitonce == 1){
+		#if db.* file has no PTR entries, just append entry to the header
+		#we can tell it has no PTR entries because $doitonce was never set to 0
+		$splice_here = $line_number;
 	}
 
 	splice @file_contents, $splice_here, 0, "$octet[-1]\t\tPTR\t$hostname.";
