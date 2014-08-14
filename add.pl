@@ -9,7 +9,7 @@ sub main {
 	my $newips = &newips; #hash of new ips from __DATA__
 	#&print_hash($newips); #check to see if newips got read correctly
 	#print $$newips{'10.11.13.66'}; #this is how to use %newips
-	
+
 	#assumes one ip per hostname. i know it is possible to have 
 	#different hostnames with same ip. fix this bug later.
 	#right now it only affects the following ips:
@@ -51,12 +51,30 @@ sub main {
 
 		#run setserial on updated db.* files
 		foreach my $file (keys %hash_of_updated_files){
-			print "running setserial $file\n";
+
+			#do a diff of the changes and check with user before overwriting
+			my $command = "diff /tmp/$file /etc/bind/zones/$file";
+			print "running $command\n";
+			system($command);
+
+			print "Accept changes? (y/n) ";
+			my $answer=<STDIN>;
+			chomp($answer);
+			if($answer eq 'y'){
+				print "overwriting $file\n";
+				system("mv /tmp/$file /etc/bind/zones/$file");
+
+				print "running setserial $file\n";
+				system("setserial $file");
+			}else{
+				next;
+			}
 		}
 
 
 		#run service bind9 reload
 		print "running service bind9 reload\n";
+		system("service bind9 reload");
 
 
 		#do a ping test on each new ip
@@ -64,6 +82,7 @@ sub main {
 			my $hostname = $$newips{$ip};
 			$hostname =~ s/\.paraccel\.com//;
 			print "ping -c 1 $hostname\n";
+			system("ping -c1 -w1 $hostname");
 		}
 	}
 
@@ -99,7 +118,7 @@ sub add_forwarddns_entry{
 
 	#ready to output @file_contents back into a file
 	print "-----------------\n";
-	open(OUTPUT,'>',"db.paraccel.com") or die $!;
+	open(OUTPUT,'>',"/tmp/db.paraccel.com") or die $!;
 
 	foreach my $line (@file_contents){
 		print OUTPUT "$line\n";
@@ -151,7 +170,7 @@ sub add_reversedns_entry{
 
 	#ready to output @file_contents back into a file
 	print "-----------------\n";
-	open(OUTPUT,'>',$file_to_open) or die $!;
+	open(OUTPUT,'>',"/tmp/$file_to_open") or die $!;
 	foreach my $line (@file_contents){
 		print OUTPUT "$line\n";
 	}
