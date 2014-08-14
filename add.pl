@@ -10,6 +10,8 @@ sub main {
 	#&print_hash($newips); #check to see if newips got read correctly
 	#print $$newips{'10.11.13.66'}; #this is how to use %newips
 
+	my %hash_of_updated_files;
+
 	foreach my $ip (@ARGV) {
 	
 		&check_typo($ip); #makes sure input ip is correct	format
@@ -27,9 +29,24 @@ sub main {
 		#updates db.paraccel.com with new ip
 		&add_forwarddns_entry($ip,$hostname);
 
+		my @octet = split(/\./,$ip);
+		my $file_to_open = "db.$octet[-2].$octet[-3].$octet[-4]";
+
+		$hash_of_updated_files{$file_to_open}=0;
+
 	}
-	
+
+	#db.paraccel.com is always updated so we add this entry
+	$hash_of_updated_files{'db.paraccel.com'}=0;
+
 	#run setserial on updated db.* files
+	foreach my $file (keys %hash_of_updated_files){
+		print "running setserial $file\n";
+	}
+
+
+	print "running service bind9 reload\n";
+	#
 	#run service bind9 reload
 
 
@@ -61,9 +78,11 @@ sub add_forwarddns_entry{
 	}
 	#ready to output @file_contents back into a file
 	print "-----------------\n";
+	open(OUTPUT,'>',"db.paraccel.com") or die $!;
 	foreach my $line (@file_contents){
-		print "$line\n";
+		print OUTPUT "$line\n";
 	}
+	close(OUTPUT);
 
 }
 
@@ -110,10 +129,11 @@ sub add_reversedns_entry{
 
 	#ready to output @file_contents back into a file
 	print "-----------------\n";
+	open(OUTPUT,'>',$file_to_open) or die $!;
 	foreach my $line (@file_contents){
-		print "$line\n";
+		print OUTPUT "$line\n";
 	}
-
+	close(OUTPUT);
 
 }
 
