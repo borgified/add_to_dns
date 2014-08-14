@@ -14,10 +14,17 @@ sub main {
 		#add corresponding PTR entry
 		#updates db.paraccel.com with new ip
 	
-		&check_typo($ip); #makes sure input ip is correct	
-		print "$ip\n";
+		&check_typo($ip); #makes sure input ip is correct	format
+		#check that it exists in our database
+		if(!exists($$newips{$ip})){
+			print "unknown $ip, update __DATA__ section to include this entry\n";
+			next;
+		}
+		my $hostname = $$newips{$ip};
+		print "adding: $ip $hostname\n";
 
-		&add_reversedns_entry($ip);
+
+		&add_reversedns_entry($ip,$hostname);
 
 	}
 	
@@ -29,11 +36,43 @@ sub main {
 &main;
 
 sub add_reversedns_entry{
-	my $ip = shift @_;
+	my $ip = shift;
+	my $hostname = shift;
 	my @octet = split(/\./,$ip);
 	my $file_to_open = "db.$octet[-2].$octet[-3].$octet[-4]";
 	#print "$file_to_open\n"; #check to see if the filename is setup correctly
 
+	my $file_contents = &slurp("./zones/$file_to_open");
+	my @file_contents = split(/\n/,$file_contents);
+	my $line_number=0;
+	my $doitonce=1;
+	my $splice_here;
+	#remember to do the case where this is the first entry
+	foreach my $line (@file_contents){
+		$line_number++;
+		if($line =~ /^(\d+)/){
+			if($1 == $octet[-1]){
+				print "$line_number: entry already exists!: $line\n";
+				return;
+			}elsif(($1 > $octet[-1]) && $doitonce){
+				#print "$line_number: $line\n";
+				#print "put it before this line: $line_number\n";
+				$splice_here=$line_number-1;
+				$doitonce=0;
+			}elsif($1 < $octet[-1]){
+				#print "$line_number: $line\n";
+			}else{
+				#print "$line_number: $line\n";
+			}
+		}
+	}
+
+	splice @file_contents, $splice_here, 0, "$octet[-1]\t\tPTR\t$hostname.";
+
+	print "-----------------\n";
+	foreach my $line (@file_contents){
+		print "$line\n";
+	}
 
 
 }
@@ -56,8 +95,9 @@ sub print_hash {
 
 
 sub slurp {
+	#http://perlmaven.com/slurp
 	my $file = shift;
-	open my $fh, '<', $file or die;
+	open my $fh, '<', $file or die $!;
 	local $/ = undef;
 	my $cont = <$fh>;
 	close $fh;
